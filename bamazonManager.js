@@ -123,9 +123,13 @@ var NewProduct = function (name, department, price, stock)
     var conn = GetConnection();
     conn.connect(function (err)
     {
+        console.log(name)
+        console.log(department)
+        console.log(price)
+        console.log(stock)
         if (err) throw err;
 
-        var query = `INSERT INTO products (product_name, department_name, price, stock_quantity) VALUES (${name},${department},${price},${stock});`
+        var query = `INSERT INTO products (product_name, department_name, price, stock_quantity) VALUES ('${name}','${department}',${price},${stock});`
         conn.query(query, function (err, data)
         {
             if (err)
